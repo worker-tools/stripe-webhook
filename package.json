@@ -22,5 +22,14 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^4.0.3"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worker-utils/stripe-webhook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/worker-utils/stripe-webhook/issues"
+  },
+  "homepage": "https://github.com/worker-utils/stripe-webhook#readme"
 }
