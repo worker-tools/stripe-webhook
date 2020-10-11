@@ -31,5 +31,12 @@
   "bugs": {
     "url": "https://github.com/worker-utils/stripe-webhook/issues"
   },
-  "homepage": "https://github.com/worker-utils/stripe-webhook#readme"
+  "homepage": "https://github.com/worker-utils/stripe-webhook#readme",
+  "keywords": [
+    "stripe-api",
+    "webhook",
+    "web-crypto",
+    "web-cryptography-api",
+    "cloudflare-workers"
+  ]
 }
