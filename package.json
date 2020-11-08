@@ -1,6 +1,6 @@
 {
   "name": "@werker/stripe-webhook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adaption of Stripe's webhook implementation that works in worker environments such as Cloudflare Workers",
   "main": "index.js",
   "files": [
