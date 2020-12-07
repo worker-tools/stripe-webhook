@@ -7,8 +7,12 @@ function compareArrayBuffers(ab1: ArrayBuffer, ab2: ArrayBuffer) {
   if (ab1.byteLength != ab2.byteLength) return false;
   const dv1 = new Uint8Array(ab1);
   const dv2 = new Uint8Array(ab2);
-  for (let i = 0; i != ab1.byteLength; i++) if (dv1[i] !== dv2[i]) return false;
-  return true;
+  let res = true;
+  for (let i = 0; i != ab1.byteLength; i++) { 
+    const v = dv1[i] === dv2[i];
+    res = v && res;
+  }
+  return res;
 }
 
 function compareArrayBufferTo(expected: ArrayBuffer) {
