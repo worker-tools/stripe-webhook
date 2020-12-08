@@ -26,7 +26,6 @@
   "devDependencies": {
     "typescript": "^4.0.3"
   },
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/worker-utils/stripe-webhook.git"
@@ -41,5 +40,8 @@
     "web-crypto",
     "web-cryptography-api",
     "cloudflare-workers"
-  ]
+  ],
+  "dependencies": {
+    "typed-array-utils": "^0.1.0"
+  }
 }

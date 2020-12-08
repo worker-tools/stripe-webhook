@@ -1,23 +1,8 @@
-const byteToHex = (byte: number) => byte.toString(16).padStart(2, '0');
-const hexToByte = (hex: string) => parseInt(hex, 16);
-const hexStringToArrayBuffer = (hex: string) => new Uint8Array(hex.match(/[0-9A-Fa-f]{1,2}/g).map(hexToByte)).buffer;
-const arrayBufferToHexString = (arrayBuffer: ArrayBuffer) => Array.from(new Uint8Array(arrayBuffer), byte => byteToHex(byte)).join('');
+import { bytesToHexString, compareBufferSources, hexStringToBytes } from 'typed-array-utils';
 
-function compareArrayBuffers(ab1: ArrayBuffer, ab2: ArrayBuffer) {
-  if (ab1.byteLength != ab2.byteLength) return false;
-  const dv1 = new Uint8Array(ab1);
-  const dv2 = new Uint8Array(ab2);
-  let res = true;
-  for (let i = 0; i != ab1.byteLength; i++) { 
-    const v = dv1[i] === dv2[i];
-    res = v && res;
-  }
-  return res;
-}
-
-function compareArrayBufferTo(expected: ArrayBuffer) {
+function compareBufferSourceTo(expected: BufferSource) {
   return (candidate: ArrayBuffer) => {
-    return compareArrayBuffers(expected, candidate);
+    return compareBufferSources(expected, candidate);
   }
 }
 
@@ -61,7 +46,7 @@ export async function generateTestHeaderString(opts: {
 
   opts.signature =
     opts.signature ||
-    arrayBufferToHexString(await computeSignature(
+    bytesToHexString(await computeSignature(
       `${opts.timestamp}.${opts.payload}`,
       opts.secret
     ));
@@ -93,8 +78,8 @@ async function verifyHeader(payload: string, header: string, secret: string, tol
   );
 
   const signatureFound = !!details.signatures
-    .map(hexStringToArrayBuffer)
-    .filter(compareArrayBufferTo(expectedSignature))
+    .map(hexStringToBytes)
+    .filter(compareBufferSourceTo(expectedSignature))
     .length;
 
   if (!signatureFound) {
