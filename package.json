@@ -1,5 +1,5 @@
 {
-  "name": "@werker/stripe-webhook",
+  "name": "@worker-tools/stripe-webhook",
   "version": "1.1.0",
   "description": "Adaption of Stripe's webhook implementation that works in worker environments such as Cloudflare Workers",
   "type": "module",
@@ -28,12 +28,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/worker-utils/stripe-webhook.git"
+    "url": "git+https://github.com/worker-tools/stripe-webhook.git"
   },
   "bugs": {
-    "url": "https://github.com/worker-utils/stripe-webhook/issues"
+    "url": "https://github.com/worker-tools/stripe-webhook/issues"
   },
-  "homepage": "https://github.com/worker-utils/stripe-webhook#readme",
+  "homepage": "https://github.com/worker-tools/stripe-webhook#readme",
   "keywords": [
     "stripe-api",
     "webhook",
