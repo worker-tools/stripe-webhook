@@ -14,8 +14,8 @@ async function computeSignature(signedPayload: string, secret: string) {
 
 const DEFAULT_TOLERANCE = 300; // 5 minutes
 
-export function constructEvent(payload: string, header: string, secret: string, tolerance?: number) {
-  verifyHeader(
+export async function constructEvent(payload: string, header: string, secret: string, tolerance?: number) {
+  await verifyHeader(
     payload,
     header,
     secret,
